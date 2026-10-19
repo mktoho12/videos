@@ -3,7 +3,7 @@ dist
 out
 .DS_Store
 .env
-mugicha/reference/
-kaji-to-kenryoku/reference/
+*/reference/
 kaji-to-kenryoku/public/
 kaji-to-kenryoku/stills/
+tadashii-sharehouse/stills/
