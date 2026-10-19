@@ -284,3 +284,22 @@ export const MESSAGE_REVEAL: { from: number; count: number }[] = [
 
 /** 「翌日」の札を出す台詞 */
 export const NEXT_DAY_LINE = 48;
+
+/** 効果音（public/se、効果音ラボ）。台詞の頭（start）か終わり（end）で鳴らす */
+export type SeCue = { line: number; at: "start" | "end"; file: string };
+
+export const SE_CUES: SeCue[] = [
+  { line: 2, at: "start", file: "nyu3.mp3" }, // 空のプリンの図が出る
+  { line: 5, at: "start", file: "pico-pico-hammer1.mp3" }, // 「開廷するのだ！」（裁判の木槌の代わりにおもちゃのハンマー）
+  { line: 7, at: "start", file: "data-display1.mp3" }, // 往復カウンターが出る
+  { line: 19, at: "start", file: "nyu3.mp3" }, // 「平行線……」
+  { line: 23, at: "start", file: "sceneswitch1.mp3" }, // めたんが入ってくる
+  { line: 27, at: "start", file: "shock2.mp3" }, // ずんだもん「うっ」
+  { line: 36, at: "start", file: "data-display1.mp3" }, // 名前と日付のプリン
+  { line: 41, at: "start", file: "data-display1.mp3" }, // 3軒の冷蔵庫
+  { line: 48, at: "start", file: "sceneswitch1.mp3" }, // 翌日、貼り紙だらけの冷蔵庫
+  { line: 51, at: "start", file: "surprise1.mp3" }, // 「ルール違反なのだ！」
+  { line: 56, at: "start", file: "shock2.mp3" }, // ずんだもん「うっ」
+  { line: 57, at: "start", file: "nyu3.mp3" }, // まとめの図
+  { line: 59, at: "end", file: "tin1.mp3" }, // オチ「貼り紙は、1枚でいいのだ」
+];

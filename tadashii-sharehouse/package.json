@@ -1,7 +1,7 @@
 {
   "name": "tadashii-sharehouse",
   "version": "0.0.0",
-  "description": "プリン裁判は2人では終わらない（仮題）。制作中は motion-kit を file: で参照",
+  "description": "プリン裁判は2人では終わらない（motion-kit v0.2.0 に固定済み）",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
@@ -14,7 +14,7 @@
     "@remotion/cli": "4.0.529",
     "@remotion/google-fonts": "4.0.529",
     "@remotion/zod-types": "4.0.529",
-    "motion-kit": "file:../../motion-kit",
+    "motion-kit": "git+https://github.com/mktoho12/motion-kit.git#v0.2.0",
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "remotion": "4.0.529",

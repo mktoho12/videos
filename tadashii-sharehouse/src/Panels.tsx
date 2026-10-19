@@ -243,12 +243,14 @@ export const Message: React.FC<{ style: Style; count: number }> = ({ style, coun
   );
 };
 
-/** S9: クレジット（BGM・効果音は段階6で足す） */
+/** S9: クレジット */
 export const Credits: React.FC<{ style: Style }> = ({ style }) => {
   const rows: [string, string][] = [
     ["音声", "VOICEVOX:ずんだもん　VOICEVOX:四国めたん\nVOICEVOX:春日部つむぎ"],
     ["立ち絵", "坂本アヒル"],
     ["背景", "みんちりえ"],
+    ["BGM", "自宅にて / KK（OpenTracks）"],
+    ["効果音", "効果音ラボ"],
   ];
   return (
     <div style={{ fontFamily, fontWeight: 800, color: "#fff", fontSize: 50, lineHeight: 1.6 }}>

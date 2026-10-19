@@ -3,7 +3,7 @@
  * 見た目は styleframe.md、表情・立ち位置・図は演出表（src/direction.ts）に従う。
  * 前作 kaji-to-kenryoku の Kaji.tsx を複製し、3人目（つむぎ）・めたんの登場・この動画の図に合わせて変えた。
  * 動きの所要時間・イージング・距離は motion-kit のトークンを既定値にした props（motion）で持つ。
- * BGM と効果音は段階6で足す。
+ * 音: 台詞（public/voice）、BGM（public/bgm、段階6）、効果音（public/se、演出表の SE_CUES、段階6）。
  */
 import React from "react";
 import {
@@ -34,14 +34,24 @@ import {
   MOUTH_GROUP,
   NEXT_DAY_LINE,
   PANELS,
+  SE_CUES,
 } from "./direction";
 import { Counter, Credits, Fridge, Houses, Message, NOTES, Pudding as PuddingPanel, Rule, Telop, Title } from "./Panels";
 import { MANIFESTS, Tachie } from "./Tachie";
 import { layout, MOUTH_FPS, PlacedLine, Speaker, timingDefaults, timingSchema } from "./timeline";
 import { styleDefaults, styleSchema } from "./style";
 
+/** 音量（0〜1）と、BGM の頭と終わりのフェード（秒） */
+const audioSchema = z.object({
+  bgmVolume: z.number().min(0).max(1),
+  seVolume: z.number().min(0).max(1),
+  bgmFadeInSec: z.number().min(0).max(10),
+  bgmFadeOutSec: z.number().min(0).max(10),
+});
+
 export const puddingSchema = timingSchema.extend({
   style: styleSchema,
+  audio: audioSchema,
   motion: z.object({
     /** 字幕の箱の出入り（不透明度だけ） */
     captionFadeSec: z.number().min(0).max(2),
@@ -75,6 +85,8 @@ export type PuddingProps = z.infer<typeof puddingSchema>;
 export const puddingDefaults: PuddingProps = {
   ...timingDefaults,
   style: styleDefaults,
+  // 前作で人が書き出しを聞いて決めた値（BGM は台詞が聞き取れるよう小さめ）
+  audio: { bgmVolume: 0.12, seVolume: 0.5, bgmFadeInSec: 1, bgmFadeOutSec: 3 },
   motion: {
     captionFadeSec: duration.fast,
     panelInSec: duration.base,
@@ -329,6 +341,34 @@ export const Pudding: React.FC<PuddingProps> = (props) => {
           <Html5Audio src={staticFile(`voice/${line.file}`)} />
         </Sequence>
       ))}
+      <Bgm {...props} total={layout(props).total} />
+      {SE_CUES.map((cue, i) => {
+        const l = lines.find((x) => x.index === cue.line);
+        if (!l) return null;
+        return (
+          <Sequence key={`se-${i}`} from={cue.at === "start" ? l.from : l.from + l.frames} layout="none">
+            <Html5Audio src={staticFile(`se/${cue.file}`)} volume={props.audio.seVolume} />
+          </Sequence>
+        );
+      })}
     </AbsoluteFill>
   );
 };
+
+/** BGM（public/bgm、OpenTracks「自宅にて」KK）。頭でフェードイン、終わりでフェードアウト */
+const Bgm: React.FC<PuddingProps & { total: number }> = ({ audio, fps, total }) => (
+  <Html5Audio
+    src={staticFile("bgm/jitaku-nite.mp3")}
+    loop
+    volume={(frame) =>
+      audio.bgmVolume *
+      Math.min(
+        interpolate(frame, [0, toFrames(audio.bgmFadeInSec, fps)], [0, 1], { extrapolateRight: "clamp" }),
+        interpolate(frame, [total - toFrames(audio.bgmFadeOutSec, fps), total], [1, 0], {
+          extrapolateLeft: "clamp",
+          extrapolateRight: "clamp",
+        }),
+      )
+    }
+  />
+);
