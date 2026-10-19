@@ -4,7 +4,7 @@ out
 .DS_Store
 .env
 */reference/
-kaji-to-kenryoku/public/
-kaji-to-kenryoku/stills/
 tadashii-sharehouse/stills/
 tadashii-sharehouse/public/
+# 公開しない動画は、フォルダごと git に入れない
+kaji-to-kenryoku/
