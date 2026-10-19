@@ -8,3 +8,4 @@ tadashii-sharehouse/stills/
 tadashii-sharehouse/public/
 # 公開しない動画は、フォルダごと git に入れない
 kaji-to-kenryoku/
+channel/art/out/

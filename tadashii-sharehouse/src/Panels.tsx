@@ -246,6 +246,7 @@ export const Message: React.FC<{ style: Style; count: number }> = ({ style, coun
 /** S9: クレジット */
 export const Credits: React.FC<{ style: Style }> = ({ style }) => {
   const rows: [string, string][] = [
+    ["企画・原案", "EngineMaker新宿"],
     ["音声", "VOICEVOX:ずんだもん　VOICEVOX:四国めたん\nVOICEVOX:春日部つむぎ"],
     ["立ち絵", "坂本アヒル"],
     ["背景", "みんちりえ"],
@@ -256,7 +257,7 @@ export const Credits: React.FC<{ style: Style }> = ({ style }) => {
     <div style={{ fontFamily, fontWeight: 800, color: "#fff", fontSize: 50, lineHeight: 1.6 }}>
       {rows.map(([k, v]) => (
         <div key={k} style={{ display: "flex", gap: 48, marginBottom: 18 }}>
-          <span style={{ width: 220, textAlign: "right", opacity: 0.6 }}>{k}</span>
+          <span style={{ width: 280, textAlign: "right", opacity: 0.6 }}>{k}</span>
           <span style={{ whiteSpace: "pre" }}>{v}</span>
         </div>
       ))}

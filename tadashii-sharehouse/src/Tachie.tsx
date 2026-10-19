@@ -7,7 +7,7 @@
  *   サイドテールやほくろのように左右が非対称な部品が、反転しても正しい側に来る）
  */
 import React from "react";
-import { staticFile } from "remotion";
+import { Img, staticFile } from "remotion";
 import metanManifest from "../public/tachie/metan/manifest.json";
 import tsumugiManifest from "../public/tachie/tsumugi/manifest.json";
 import zundamonManifest from "../public/tachie/zundamon/manifest.json";
@@ -69,7 +69,7 @@ export const Tachie: React.FC<TachieProps> = ({ character, scale, flip = false, 
         walk(node.children, bare(node.name));
       } else if (node.file) {
         layers.push(
-          <img
+          <Img
             key={node.file}
             src={staticFile(`tachie/${character}/${node.file}`)}
             style={{
