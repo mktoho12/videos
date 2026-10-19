@@ -14,6 +14,7 @@
 - 掛け合い動画の作り方: 合意して録った雑談 → `tools/transcribe.sh`（ElevenLabs Scribe v2、キーは `~/.config/elevenlabs/api_key`）で話者付き文字起こし → ネタ選び → 段階0〜6。台本は VOICEVOX（localhost:50021）で合成し、試聴用の音声で確認する
 - 環境の注意: `~/.local/bin/npm`（mise の npm へのリンク）は npm-cli.js を見つけられず動かない。`/home/mktoho/.local/share/mise/installs/node/lts/bin` を PATH の先頭に入れて使う（未修正）
 - YouTube チャンネル「ずんだもんのシェアハウス暮らし」（@zundamon-sharehouse）を作成済み（2026-10-19）。操作は agent-browser の `--session youtube --restore` でログイン済み
+- ショート「みんな自分の分は完璧」（`nabe/`）: **完了**（2026-10-19）。縦長 48.6秒、ループで最初と最後がつながる。motion-kit v0.2.0 に固定済み。完成版は `nabe/out/nabe.mp4`（git 管理外）。YouTube に公開済み（https://youtube.com/shorts/Ln2KiMeGmhQ、関連動画に本編を設定）
 - 次にやること: 特になし。次の動画は、合意して録った雑談からネタを選ぶところから。motion-kit への提案（各動画の notes.md）は motion-kit 側で取り込み待ち
 
 ## 記録
@@ -52,3 +53,7 @@
 - チャンネルのアイコン（ずんだもんの顔）とバナー（キッチンの背景＋タイトル＋3人）を作って設定。作り方は `channel/art/README.md`。立ち絵（坂本アヒル）・背景（みんちりえ）の規約はアイコン・バナーへの利用も可と確認
 - プリン裁判の手直し（立ち絵の部品を Remotion の `<Img>` に替えてちらつきを解消、クレジットに「企画・原案 EngineMaker新宿」）。手直し版を `tadashii-sharehouse/out/tadashii-sharehouse.mp4` とし、前の版は `-before-fix.mp4` に改名して残した
 - プリン裁判を YouTube にアップロードし、ときさばさんの OK をもらって **公開**（2026-10-19）（https://youtu.be/iCaRi3eyvCw）。タイトル「プリン裁判は2人では終わらないのだ【ずんだもん・めたん・つむぎ】」、説明文にチャプター・クレジット、サムネイルは `channel/art/out/thumb-pudding.png`
+- 動画の説明文のクレジットに EngineMaker新宿 の URL（https://enginemaker.space/）を追加。説明文のリンクをクリックできるようにする確認のため、ユーザーが身分証明書を提出し、YouTube の確認待ち（2026-10-19）。通ったらリンクがクリックできるか確かめる
+- ショート「みんな自分の分は完璧」（`nabe/`）を段階0〜6まで制作して完了。本編の一部を切り出す案はやめ、ショート単体で完結する1本にした（ユーザーの判断）。ネタは同じ会話から「共有の大鍋・1.1倍」
+- YouTube のリミックス: 一般のチャンネルでは「許可しない」を選べない（完全なオプトアウトはパートナーのみ、長尺も同じ）。ショートは「音声のみ許可」にした。規約を確認し、効果音ラボは FAQ でショートの音声再利用を明文で許可、ずんだもん・めたんは該当する禁止なし、OpenTracks（BGM）とつむぎは明文なし（台詞と混ざった音声で YouTube の外に出ないので配布には当たりにくい）と判断。気になれば BGM を、ショートでの再利用を明文で許す配布元のものに差し替える
+- ユーザーの判断で、ショートの BGM は今後も「自宅にて」のまま（差し替えない）。リミックスは「音声のみ許可」で運用
