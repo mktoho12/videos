@@ -25,6 +25,10 @@ export const styleSchema = z.object({
   tachieTop: perCharacter(z.number()),
   /** 立ち絵の横の中心（画面幅に対する割合）。2人のときは left / right、3人のときは left / center / right */
   tachieCenterX: z.object({ left: z.number(), center: z.number(), right: z.number(), trioLeft: z.number(), trioRight: z.number() }),
+  /** S7 の冷蔵庫の図があるときの立ち位置と、冷蔵庫の図の横の中心（画面幅に対する割合） */
+  fridgeLayout: z.object({ zundamon: z.number(), metan: z.number(), tsumugi: z.number(), fridge: z.number() }),
+  /** 3人並びのとき、真ん中のめたんの顔にかからないよう、図の下端をここまでに収める（px、画面上から） */
+  trioPanelBottom: z.number(),
   caption: z.object({
     fontSize: z.number(),
     border: z.number(),
@@ -56,6 +60,8 @@ export const styleDefaults: Style = {
   tachieScale: { zundamon: 0.85, metan: 0.8, tsumugi: 0.8 },
   tachieTop: { zundamon: 60, metan: 150, tsumugi: 150 },
   tachieCenterX: { left: 0.26, center: 0.5, right: 0.76, trioLeft: 0.21, trioRight: 0.82 },
+  fridgeLayout: { zundamon: 0.13, metan: 0.6, tsumugi: 0.87, fridge: 0.36 },
+  trioPanelBottom: 330,
   caption: { fontSize: 58, border: 7, radius: 22, paddingX: 40, paddingY: 22, bottom: 150, regionRatio: 0.58, margin: 40 },
   frame: { width: 14, radius: 26 },
   title: { top: 24, fontSize: 80 },
