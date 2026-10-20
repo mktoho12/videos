@@ -1,7 +1,7 @@
 /**
  * 段階4 本実装。アニマティックと同じ時間軸（src/timeline.ts）に、立ち絵・字幕・背景・図を乗せる。
  * 見た目は styleframe.md、表情・立ち位置・図は演出表（src/direction.ts）に従う。
- * 前作 kaji-to-kenryoku の Kaji.tsx を複製し、3人目（つむぎ）・めたんの登場・この動画の図に合わせて変えた。
+ * 非公開の試作のコンポジションを複製し、3人目（つむぎ）・めたんの登場・この動画の図に合わせて変えた。
  * 動きの所要時間・イージング・距離は motion-kit のトークンを既定値にした props（motion）で持つ。
  * 音: 台詞（public/voice）、BGM（public/bgm、段階6）、効果音（public/se、演出表の SE_CUES、段階6）。
  */

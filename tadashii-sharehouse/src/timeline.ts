@@ -1,5 +1,5 @@
 /**
- * 台詞の時間軸。Animatic と本実装（Kaji）で共通に使う。
+ * 台詞の時間軸。Animatic と本実装（Pudding）で共通に使う。
  * シーンの長さは台詞の長さ（src/lines.json、tools/synth_voice.py が作る）から組み立てる。
  * 人が調整できるのは、台詞と台詞の間・シーンの切れ目の間・シーンの最低の長さ（props）。
  */

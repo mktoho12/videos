@@ -6,9 +6,9 @@
   - **作業は `public` ブランチで行い、`git push origin public:main` で GitHub の `main` に上げる**（`public` は `origin/main` を追跡している）
   - ローカルの `main` は公開前の元の履歴で、公開してはいけないファイルを含む。**`main` は push しない**（`git push origin main` や `git push --all` も不可）
   - 公開してはいけないもの（録音・文字起こし・私物の写真・素材）は、各動画の `reference/`（`*/reference/` で除外）や `public/`・`stills/` に置き、commit しない。push する前に `git status` と `git diff --stat origin/main..public` で中身を確かめる
-  - **公開しない動画はフォルダごと `.gitignore` に入れる**。`kaji-to-kenryoku/` はフォルダごと除外し、2026-10-19 に未 push の履歴からも消した（em105 の手元にだけ残っている）
+  - **公開しない動画はフォルダごと `.gitignore` に入れる**。非公開の試作はフォルダごと除外し（このリポジトリの `.gitignore` ではなく、手元の `.git/info/exclude` で除外）、2026-10-19 に未 push の履歴からも消した（em105 の手元にだけ残っている）
 - 動画1本目「麦茶」（`mugicha/`）: 完了（2026-09-30）
-- `kaji-to-kenryoku/`: 非公開の試作。**公開しない**。git の対象外
+- 非公開の試作: **公開しない**。git の対象外
 - 動画「プリン裁判は2人では終わらない」（`tadashii-sharehouse/`）: **完了**（2026-10-19）。ずんだもん・春日部つむぎ・四国めたんの掛け合い、約4分15秒。motion-kit v0.2.0 に固定済み。完成版は `tadashii-sharehouse/out/tadashii-sharehouse.mp4`（git 管理外、Mac の ~/Downloads/2026-10-19/ に転送済み）
 - README.md（2026-10-19）: 共同制作者向けに、リポジトリの中身・掛け合い動画の作り方・守っていること・動かし方を書いた
 - 掛け合い動画の作り方: 合意して録った雑談 → `tools/transcribe.sh`（ElevenLabs Scribe v2、キーは `~/.config/elevenlabs/api_key`）で話者付き文字起こし → ネタ選び → 段階0〜6。台本は VOICEVOX（localhost:50021）で合成し、試聴用の音声で確認する
@@ -51,13 +51,13 @@
 - セッション終了。HQ に報告
 
 ### 2026-10-17
-- `kaji-to-kenryoku/`（非公開の試作）を制作
+- 非公開の試作を制作
 
 ### 2026-10-19
-- ユーザーの判断で `kaji-to-kenryoku/` は公開しないことに決定。以後の動画は、合意して録った会話だけを使い、個人を特定できない一般的な問題提起にする
+- ユーザーの判断で非公開の試作は公開しないことに決定。以後の動画は、合意して録った会話だけを使い、個人を特定できない一般的な問題提起にする
 - `tadashii-sharehouse/` を制作。録音を ElevenLabs Scribe v2 で文字起こしし、ネタ「プリン裁判は2人では終わらない」を選んで段階0〜6を完了
 - 3人目の立ち絵は東北きりたん（太ももまでの絵で不自然）→ 春日部つむぎ 3.0 に変更。つむぎの公式 FAQ で、自分で用意した立ち絵でも個人の範囲なら収益化してよいことを確認
-- `kaji-to-kenryoku/` を未 push の履歴からフォルダごと消し、`.gitignore` に追加。README.md を追加して GitHub に push（f6347e5）
+- 非公開の試作を未 push の履歴からフォルダごと消し、除外に追加。README.md を追加して GitHub に push（f6347e5）
 - シェアハウスの管理人さんの許可を得て、YouTube チャンネル「ずんだもんのシェアハウス暮らし」（https://www.youtube.com/@zundamon-sharehouse 、ID UCbc8K8Eucb1_UjDz0LDLARw）を作成。ユーザーの Google アカウントが管理するブランドアカウント（@mktoho-dev とは別名義）。説明文に「非公式の二次創作チャンネル」と VOICEVOX のクレジットを記載。アイコン・バナーは未設定
 - キャラ名をチャンネル名に使うことは、ずんだもん（zunko.jp/guideline.html）・つむぎ（FAQ）の規約上、個人なら可。条件: 公式と誤解されない名前と説明、動画ごとに概要欄へ `VOICEVOX:〇〇` のクレジット、商標登録しない、企業スポンサー案件は有償扱い
 - チャンネルのアイコン（ずんだもんの顔）とバナー（キッチンの背景＋タイトル＋3人）を作って設定。作り方は `channel/art/README.md`。立ち絵（坂本アヒル）・背景（みんちりえ）の規約はアイコン・バナーへの利用も可と確認
