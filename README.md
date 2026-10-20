@@ -38,6 +38,8 @@
 
 各段階の終わりで AI は止まり、人が「次へ」と言うまで先に進みません。
 
+キャラの関係・台本の作り・画角・BGM など、動画に共通する決め事は [channel/zundamon-guide.md](channel/zundamon-guide.md) にまとめています。
+
 ## 守っていること
 
 - **会話の録音・文字起こしは git に入れない**：各動画の `reference/` に置き、`.gitignore` で除外している
