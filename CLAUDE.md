@@ -3,6 +3,12 @@
 ## このプロジェクトの目的
 個々の動画を制作する場所。工程・動きの文法・共通部品は motion-kit（`../motion-kit`）に従う。
 作業開始時に必ず `../motion-kit/docs/workflow.md` と `../motion-kit/docs/grammar.md` を読むこと。
+`../motion-kit` がないときは、このリポジトリと同じ階層に `git clone https://github.com/mktoho12/motion-kit.git` して `npm install` する（README の「新しい動画を作る」）。
+
+## 掛け合い動画（ずんだもん）
+- 作業開始時に `channel/zundamon-guide.md` も読む。キャラの関係・台本の作り・画角・BGM などの決め事がある
+- motion-kit の workflow.md と食い違うところ（長さ、台本と声の段階）は、zundamon-guide.md を優先する
+- 新しい掛け合い動画は、motion-kit の雛形ではなく、いちばん新しい動画を複製して始める（横長は `omoikomi/`、ショートは `amido/`。手順は zundamon-guide.md の「新しい動画の始め方」）
 
 ## motion-kit との依存
 - package.json は動画ごとに持つ（`<slug>/package.json`）。リポジトリ直下には置かない（2026-09-30 決定）
@@ -18,7 +24,7 @@
 - `package.json` ほか（`package-lock.json`・`tsconfig.json`・`remotion.config.ts`）— この動画だけの依存。コマンドは `<slug>/` の中で実行する
 - `notes.md` — 段階ごとの記録、人間の指摘、motion-kit への提案
 
-新しい動画は `../motion-kit/src/templates/` から雛形を複製して始める。
+新しい動画は `../motion-kit/src/templates/` から雛形を複製して始める（掛け合い動画は除く。上の「掛け合い動画（ずんだもん）」）。
 
 ## 進め方
 - workflow.md の段階を飛ばさない。各段階の成果物を出したら停止し、承認を待つ

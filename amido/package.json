@@ -1,7 +1,7 @@
 {
   "name": "amido",
   "version": "0.0.0",
-  "description": "ショート「網戸は業者を呼ぶのだ」（本編 omoikomi と組、制作中）",
+  "description": "ショート「網戸は業者を呼ぶのだ」（本編 omoikomi と組、完成、motion-kit v0.2.0 に固定）",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {

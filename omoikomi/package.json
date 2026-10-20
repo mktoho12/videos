@@ -1,7 +1,7 @@
 {
   "name": "omoikomi",
   "version": "0.0.0",
-  "description": "「難しそう」はだいたい思い込み（制作中）",
+  "description": "「難しそう」はだいたい思い込み（完成、motion-kit v0.2.0 に固定）",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
