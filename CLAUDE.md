@@ -8,7 +8,7 @@
 ## 掛け合い動画（ずんだもん）
 - 作業開始時に `channel/zundamon-guide.md` も読む。キャラの関係・台本の作り・画角・BGM などの決め事がある
 - motion-kit の workflow.md と食い違うところ（長さ、台本と声の段階）は、zundamon-guide.md を優先する
-- 新しい掛け合い動画は、motion-kit の雛形ではなく、いちばん新しい動画を複製して始める（横長は `omoikomi/`、ショートは `amido/`。手順は zundamon-guide.md の「新しい動画の始め方」）
+- 新しい掛け合い動画は、motion-kit の雛形ではなく、いちばん新しい動画を複製して始める（横長は `atarimae/`、ショートは `yattoita/`。手順は zundamon-guide.md の「新しい動画の始め方」）
 
 ## motion-kit との依存
 - package.json は動画ごとに持つ（`<slug>/package.json`）。リポジトリ直下には置かない（2026-09-30 決定）

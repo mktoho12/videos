@@ -11,7 +11,7 @@
 
 motion-kit の雛形（`src/templates/`）は、モーショングラフィックス用です。台本・声・立ち絵・字幕・画角・BGM の仕組みが入っていません。掛け合い動画は、いちばん新しい動画を複製して始めます。
 
-- 横長の動画は `omoikomi/`、ショート（縦長）は `amido/` を複製する
+- 横長の動画は `atarimae/`、ショート（縦長）は `yattoita/` を複製する（2026-10-21 時点でいちばん新しいもの）
 - 新しいフォルダ `<slug>/` に、次のものを複製する
 
 | 複製するもの | そのまま使う／書き直す |
@@ -19,9 +19,9 @@ motion-kit の雛形（`src/templates/`）は、モーショングラフィッ�
 | `package.json`・`package-lock.json`・`tsconfig.json`・`remotion.config.ts` | `package.json` の `name`・`description` を直す。制作中は motion-kit を `"file:../../motion-kit"` にして `npm install`（隣に motion-kit を clone しておく。README の「新しい動画を作る」）。完成したら motion-kit のタグに固定する |
 | `tools/synth_voice.py` | そのまま。`script.md` の台詞を合成し、`public/voice/` と `src/lines.json` を作る |
 | `src/Tachie.tsx`・`src/Caption.tsx`・`src/font.ts`・`src/timeline.ts`・`src/index.ts` | そのまま（`index.ts` の冒頭のコメントだけ直す） |
-| `src/style.ts` | 段階2 で、配置や倍率をこの動画に合わせて直す |
+| `src/style.ts` | **複製したらすぐ `frame` を `{ width: 0, radius: 0 }` にする**（下の「画面」の枠の話）。段階2 で、配置や倍率をこの動画に合わせて直す |
 | `src/Root.tsx` | コンポジションの名前と、スタイルフレームの一覧を直す |
-| 本体（`src/Omoikomi.tsx` または `src/Amido.tsx`） | ファイル名とコンポジション名を新しい動画に変える。作り（画角の切り替え・BGM・終わりの場面）はそのまま使う |
+| 本体（`src/Atarimae.tsx` または `src/Yattoita.tsx`） | ファイル名とコンポジション名を新しい動画に変える。作り（画角の切り替え・BGM・終わりの場面）はそのまま使う |
 | `src/direction.ts`・`src/shots.ts`（横長だけ） | 中の表を空にして、この動画の台詞に合わせて書き直す（表情・効果音・BGM・画角） |
 | `src/Panels.tsx` | 図はこの動画のものに描き直す。前の動画の図は消す |
 | `src/Animatic.tsx`・`src/Styleframe.tsx`・`src/Thumb.tsx`（横長だけ） | 仕組みはそのまま、中身（代表シーン・サムネイルの文字や場面）を書き直す |
@@ -77,6 +77,7 @@ motion-kit の雛形（`src/templates/`）は、モーショングラフィッ�
   - 寄りは、決め台詞・感情が動く一言・伝えたいことの要の一言で、話す人に 1.7倍（ショートは画面が縦長なので 1.6倍）。1台詞だけ寄って、次で引きに戻す。寄りを3回より多く続けない
   - 差し込みは、仕組みや手順を説明する台詞で使う。図が主役になり、背景をぼかして暗くし、話す人を右下に小さく出す
   - 1つの画角は最低 `hold.medium`（1.5秒）見せる
+- **画面のまわりに枠を付けない**。2026-10-21 までの動画は `style.ts` の `frame`（幅14px・角の丸み26px）で枠を付けるつもりだったが、内側の絵が枠の幅だけ右下にずれて、上と左にだけ黒い線が出ていた（ユーザーが公開後に気づいた）。公開済みの動画はそのままにし、新しい動画は `frame` を `{ width: 0, radius: 0 }` にする
 - 細かい値は `omoikomi/styleframe.md` にあります
 
 ## 音
