@@ -13,7 +13,8 @@
 | `nabe/` | ショート「みんな自分の分は完璧なのに、鍋だけ残る」（縦長、約49秒） |
 | `omoikomi/` | 「「難しそう」は、だいたい思い込みなのだ」（横長、約7分。めたんが管理人になった最初の動画） |
 | `amido/` | ショート「網戸に穴があいたら、業者を呼ぶのだ！」（縦長、約50秒。`omoikomi` と組） |
-| `channel/` | チャンネルの決め事（[zundamon-guide.md](channel/zundamon-guide.md)）、YouTube の運営方針（[youtube-guide.md](channel/youtube-guide.md)）、アイコン・バナー |
+| `atarimae/` | 「「最近みんな厳しい」は、家がきれいになったしるし」（横長、約6分。`omoikomi` を複製して作った3本目） |
+| `channel/` | チャンネルの決め事（[zundamon-guide.md](channel/zundamon-guide.md)）、YouTube の運営方針（[youtube-guide.md](channel/youtube-guide.md)）、BGM の申し立ての記録（[bgm-checks.md](channel/bgm-checks.md)）、アイコン・バナー |
 
 動画ごとのフォルダには、次のファイルがあります。
 
@@ -57,9 +58,9 @@
 
 ## 必要な外部素材と入手方法
 
-公開している4本（`tadashii-sharehouse`、`nabe`、`omoikomi`、`amido`）を書き出すのに必要で、このリポジトリに入っていないものの一覧です。素材は、各動画のフォルダの `public/` に、下の名前で置きます。規約はこの節を書いた 2026-10-20 時点のものなので、使う前に配布元で確かめてください。
+掛け合いの5本（`tadashii-sharehouse`、`nabe`、`omoikomi`、`amido`、`atarimae`）を書き出すのに必要で、このリポジトリに入っていないものの一覧です。素材は、各動画のフォルダの `public/` に、下の名前で置きます。規約はこの節を書いた 2026-10-20 時点のものなので、使う前に配布元で確かめてください。
 
-### 4本に共通するもの
+### 5本に共通するもの
 
 | 素材 | 入手先 | 規約の要点 | 置く場所・ファイル名 |
 |---|---|---|---|
@@ -93,6 +94,7 @@
 | `tadashii-sharehouse` | `npm run render -- Pudding out/pudding.mp4` | みんちりえ「アイランドキッチン」の夜（照明あり）と夕方 → `bg/kitchen_night.png`、`bg/kitchen_evening.png`（配布されている 1920x1080 の PNG） | 自宅にて / KK → `bgm/jitaku-nite.mp3` |
 | `nabe` | `npm run render -- Nabe out/nabe.mp4` | `tadashii-sharehouse` と同じ | 自宅にて / KK → `bgm/jitaku-nite.mp3` |
 | `omoikomi` | `npm run render -- Omoikomi out/omoikomi.mp4`（サムネイルは `npx remotion still src/index.ts Thumb out/thumb.png`） | みんちりえ「リビング」（「リビング２」ではない）の照明あり → `bg/living_night_on.jpg`、「アパートの浴室」の昼・湯気なし → `bg/bathroom_day.jpg`。洗濯機置き場の3枚 `bg/laundry_{before,removed,new}.png` は下の「再現できないもの」を参照。`bg/hallway_on.jpg`（「アパートの玄関ホール」）はスタイルフレームの確認用で、書き出しには要らない | 追いかけっこキャッハー / 今川彰人オーケストラ → `oikakekko-kyahha.mp3`、ほんわかぷっぷー / もっぴーさうんど → `honwaka-puppu.mp3`、You and Me / しゃろう → `you-and-me.mp3`、10℃ / しゃろう → `10do.mp3`、わくわくクッキングタイム的なBGM / 鷹尾まさき → `wakuwaku-cooking.mp3`、Morning / しゃろう → `morning.mp3`（使う場面と音量は `src/direction.ts`） |
+| `atarimae` | `npm run render -- Atarimae out/atarimae.mp4`（サムネイルは `npx remotion still src/index.ts Thumb out/thumb.png`） | みんちりえ「家の玄関ホール」の3番（夜・照明あり）→ `bg/house_hallway_3.jpg`、「一人部屋３」の3番（カーテンを閉めた夜）→ `bg/single_room3_3.jpg`、台所は `tadashii-sharehouse` と同じ「アイランドキッチン」の夜 → `bg/kitchen_night.png` | 追いかけっこキャッハー、ほんわかぷっぷー、You and Me、10℃、Morning（`omoikomi` と同じファイル）、自宅にて / KK → `jitaku-nite.mp3`（使う場面と音量は `src/direction.ts`） |
 | `amido` | `npm run render -- Amido out/amido.mp4` | `omoikomi` と同じリビング。最後に出す本編のサムネイルは、`omoikomi` で書き出した `out/thumb.png` を `public/thumb-main.png` に置く（下の「再現できないもの」を参照） | 追いかけっこキャッハー、ほんわかぷっぷー（`omoikomi` と同じファイル） |
 
 ### 立ち絵の分け方
@@ -158,5 +160,5 @@ git clone https://github.com/mktoho12/motion-kit.git
 - 音声: VOICEVOX:ずんだもん、VOICEVOX:四国めたん、VOICEVOX:春日部つむぎ
 - 立ち絵: 坂本アヒル
 - 背景: みんちりえ（`omoikomi` の洗濯機置き場は、住人の写真から ChatGPT で作成）
-- BGM（OpenTracks）: 自宅にて / KK（`tadashii-sharehouse`・`nabe`）。追いかけっこキャッハー / 今川彰人オーケストラ、ほんわかぷっぷー / もっぴーさうんど（`omoikomi`・`amido`）。You and Me / しゃろう、10℃ / しゃろう、わくわくクッキングタイム的なBGM / 鷹尾まさき、Morning / しゃろう（`omoikomi`）
+- BGM（OpenTracks）: 自宅にて / KK（`tadashii-sharehouse`・`nabe`・`atarimae`）。追いかけっこキャッハー / 今川彰人オーケストラ、ほんわかぷっぷー / もっぴーさうんど（`omoikomi`・`amido`・`atarimae`）。You and Me / しゃろう、10℃ / しゃろう、Morning / しゃろう（`omoikomi`・`atarimae`）。わくわくクッキングタイム的なBGM / 鷹尾まさき（`omoikomi`）
 - 効果音: 効果音ラボ
