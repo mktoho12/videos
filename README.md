@@ -17,7 +17,7 @@
 | `yattoita/` | ショート「注意するより、黙ってやっといたほうが早かったのだ」（縦長、約48秒。`atarimae` と組） |
 | `hitorigoto/` | 「イヤホンの向こうは、まわりに聞こえないのだ」（横長、約6分39秒。`atarimae` を複製して作った4本目） |
 | `hanauta/` | ショート「聞こえるのは、自分の声だけ」（縦長、約34秒。`hitorigoto` と組） |
-| `channel/` | チャンネルの決め事（[zundamon-guide.md](channel/zundamon-guide.md)）、YouTube の運営方針（[youtube-guide.md](channel/youtube-guide.md)）、BGM の申し立ての記録（[bgm-checks.md](channel/bgm-checks.md)）、アイコン・バナー |
+| `channel/` | チャンネルの決め事（[zundamon-guide.md](channel/zundamon-guide.md)）、YouTube の運営方針（[youtube-guide.md](channel/youtube-guide.md)）、BGM の申し立ての記録（[bgm-checks.md](channel/bgm-checks.md)）、アナリティクスの記録（[analytics-log.md](channel/analytics-log.md)）、アイコン・バナー |
 
 動画ごとのフォルダには、次のファイルがあります。
 
