@@ -4,6 +4,7 @@ import { Animatic, animaticDefaults, animaticSchema, calculateAnimaticMetadata }
 import { calculateHitorigotoMetadata, Hitorigoto, hitorigotoDefaults, hitorigotoSchema } from "./Hitorigoto";
 import { Styleframe, styleframeScenes, styleframeSchema } from "./Styleframe";
 import { Thumb } from "./Thumb";
+import { ThumbA, ThumbB } from "./ThumbAB";
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -44,6 +45,8 @@ export const RemotionRoot: React.FC = () => {
         ))}
       </Folder>
       <Still id="Thumb" component={Thumb} width={1280} height={720} />
+      <Still id="ThumbA" component={ThumbA} width={1280} height={720} />
+      <Still id="ThumbB" component={ThumbB} width={1280} height={720} />
     </>
   );
 };

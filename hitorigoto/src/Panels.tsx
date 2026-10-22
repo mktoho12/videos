@@ -143,7 +143,7 @@ export const Headset: React.FC<{ x: number; y: number; width: number; height: nu
 };
 
 /** 吹き出し（聞こえ方の図で使う）。faded は「聞こえない」声（点線の枠で中身を薄く） */
-const Bubble: React.FC<{ text: string; color: string; faded?: boolean; size?: number }> = ({ text, color, faded = false, size = 40 }) => (
+export const Bubble: React.FC<{ text: string; color: string; faded?: boolean; size?: number }> = ({ text, color, faded = false, size = 40 }) => (
   <div
     style={{
       fontFamily,
