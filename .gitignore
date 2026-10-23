@@ -22,3 +22,6 @@ hitorigoto/public/
 hitorigoto/stills/
 hanauta/public/
 hanauta/stills/
+# ポッドキャストの録音と文字起こし（私生活の話を含むので公開しない。スクリプトだけ入れる）
+tadashii-radio/*/
+!tadashii-radio/scripts/

@@ -10,6 +10,12 @@
 - motion-kit の workflow.md と食い違うところ（長さ、台本と声の段階）は、zundamon-guide.md を優先する
 - 新しい掛け合い動画は、motion-kit の雛形ではなく、いちばん新しい動画を複製して始める（横長は `atarimae/`、ショートは `yattoita/`。手順は zundamon-guide.md の「新しい動画の始め方」）
 
+## 文字起こし（音声→テキスト）
+- 文字起こしは、契約している SaaS の **ElevenLabs Scribe v2** を使う。faster-whisper など手元のモデルは使わない（GPU やキャッシュ済みのモデルがあっても使わない。2回以上言われている）
+- `POST https://api.elevenlabs.io/v1/speech-to-text`、`model_id=scribe_v2`、ヘッダ `xi-api-key`。キーは `~/.config/elevenlabs/api_key`（値は表示・送信しない）。話者分けは `diarize=true`
+- 約70分の音声も分割せずに1回で通る。実装例は `tadashii-radio/scripts/`（話者分けあり）と `~/work/ai/yt2txt`
+- 1分あたり約67クレジット使う。足りないと 401（`quota_exceeded`）が返り、本文に残りと必要な量が出る。そのときは手元のモデルに切り替えず、ユーザーに相談する
+
 ## motion-kit との依存
 - package.json は動画ごとに持つ（`<slug>/package.json`）。リポジトリ直下には置かない（2026-09-30 決定）
 - 制作中の動画は `"motion-kit": "file:../../motion-kit"` で最新を参照してよい（npm は `link:` に非対応）
