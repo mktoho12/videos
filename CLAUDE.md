@@ -8,13 +8,23 @@
 ## 掛け合い動画（ずんだもん）
 - 作業開始時に `channel/zundamon-guide.md` も読む。キャラの関係・台本の作り・画角・BGM などの決め事がある
 - motion-kit の workflow.md と食い違うところ（長さ、台本と声の段階）は、zundamon-guide.md を優先する
-- 新しい掛け合い動画は、motion-kit の雛形ではなく、いちばん新しい動画を複製して始める（横長は `atarimae/`、ショートは `yattoita/`。手順は zundamon-guide.md の「新しい動画の始め方」）
+- 新しい掛け合い動画は、motion-kit の雛形ではなく、いちばん新しい動画を複製して始める（横長は `hitorigoto/`、ショートは `hanauta/`。手順は zundamon-guide.md の「新しい動画の始め方」）
 
 ## 文字起こし（音声→テキスト）
 - 文字起こしは、契約している SaaS の **ElevenLabs Scribe v2** を使う。faster-whisper など手元のモデルは使わない（GPU やキャッシュ済みのモデルがあっても使わない。2回以上言われている）
 - `POST https://api.elevenlabs.io/v1/speech-to-text`、`model_id=scribe_v2`、ヘッダ `xi-api-key`。キーは `~/.config/elevenlabs/api_key`（値は表示・送信しない）。話者分けは `diarize=true`
 - 約70分の音声も分割せずに1回で通る。実装例は `tadashii-radio/scripts/`（話者分けあり）と `~/work/ai/yt2txt`
 - 1分あたりのクレジットはプランで違う（Creator で約20、課金前は約67）。残りは `GET https://api.elevenlabs.io/v1/user/subscription` の `character_count`／`character_limit` で見られる（キーに user の権限あり）。足りないと 401（`quota_exceeded`）が返り、本文に残りと必要な量が出る。そのときは手元のモデルに切り替えず、ユーザーに相談する
+
+## ナレーション（テキスト→音声）
+- キャラでない声（ナレーション）は、同じ ElevenLabs の Text to Speech を使ってよい（2026-10-23 ユーザー）。VOICEVOX の声はどれもキャラっぽく、会話の続きに聞こえるため
+- `POST https://api.elevenlabs.io/v1/text-to-speech/<voice_id>`、`model_id=eleven_multilingual_v2`、`language_code=ja`。日本語の声は `GET /v1/shared-voices?language=ja` で探す（キーに text_to_speech・voices_read の権限あり）
+- 漢字を読み間違えることがある（「汚れ」→「もれ」など）。作ったら Scribe で文字起こしして読みを確かめ、間違えた語はひらがなにする
+- ユーザーはサービス名を忘れがち。「文字起こしに使ってるアレ」は ElevenLabs
+- ナレーションの声は、ゆっくり霊夢（アクエスト社 AquesTalk1 の声種 f1）がしっくりくる（2026-10-23 ユーザー）。ElevenLabs の声はどれもいまいちだった
+- **AquesTalkPlayer Web（https://atpw.a-quest.com/）を agent-browser などで自動操作しない**。利用規約で、スクリプトなどの自動化プログラムによるアクセスが禁止されている（2026-10-23、規約を読む前に一度試してしまい、止めた）。Web 版はユーザーが手で操作する
+- プログラムから作るなら、公式の Linux 版ライブラリと開発ライセンスが要る。個人で非営利なら発行手数料 1,980円、営利なら値段は問い合わせ
+- 使用ライセンス（商用コンテンツ向け、1年 6,380円）は 2026-10-23 にユーザーが購入済み。有効期間はライセンス証の発行日から1年（切れたら、公開済みの動画はそのまま、新しく作る音声には更新が要る）。キーは Web 版の歯車から設定し、値は表示・送信しない。ライセンス ID は概要欄に書くとよい（義務ではない）。購入前は：宣伝や収益につながる目的なら、広告がなくても営利とみなされうる（https://www.a-quest.com/faq.html）
 
 ## motion-kit との依存
 - package.json は動画ごとに持つ（`<slug>/package.json`）。リポジトリ直下には置かない（2026-09-30 決定）
