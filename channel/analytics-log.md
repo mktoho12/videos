@@ -19,6 +19,8 @@ YouTube Studio の数字を、見るたびにここへ書き足す。1回ごと�
 | yattoita | ショート | 2026-10-21 | https://youtube.com/shorts/CmC8OZcaDPM |
 | hitorigoto | 横長 | 2026-10-22 19:00 | https://youtu.be/JuRp4YF-vRk |
 | hanauta | ショート | 2026-10-22 | https://youtube.com/shorts/HXShMHr_xgU |
+| soujibi | 横長 | 2026-10-24 0時台 | https://youtu.be/9XOgGlZoIzc |
+| sofashita | ショート | 2026-10-24 | https://youtube.com/shorts/pyIuKxSu5Bg |
 
 ## チャンネル全体（全期間の累計）
 
