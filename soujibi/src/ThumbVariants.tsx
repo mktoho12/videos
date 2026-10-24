@@ -2,6 +2,7 @@
  * サムネイルの見直し案（2026-10-24）。スマホの関連動画の欄で、まわり（濃い背景・画面の半分を占める文字・大きな顔）に
  * 埋もれていたため、次の3点を変えた案を並べて見比べる（channel/thumbnail-study.md）。
  * - 背景を暗く・色を濃くする　- 文字を倍にし、強調は赤の1語　- 顔を大きくする
+ * 2026-10-24 住人の指摘で直した：トマトは「こぼす」ものではない→「転がした」、普通のトマトに見えて冷蔵庫の下に入らない→小さく描き「ミニトマト」と書く、C のめたんが見切れる。
  * B＝文字が主役（型③ひとこと）、C＝顔が主役（型③）、D＝期待と現実の2コマ（型②）。今の Thumb.tsx が A。
  */
 import React from "react";
@@ -45,11 +46,11 @@ export const ThumbB: React.FC = () => (
     <Bg file="kitchen_day.png" brightness={0.4} />
     <Tachie character="zundamon" scale={1.25} flip pick={{ ...SHOCKED, 右腕: "手を挙げる", 左腕: "手を挙げる" }} toggles={{ 汗多め: true }} style={{ left: 450, top: -170 }} />
     <div style={{ position: "absolute", left: 36, top: 40 }}>
-      <Big size={150} color={YELLOW}>ボクが</Big>
-      <Big size={240} color={RED} style={{ marginTop: 10, marginLeft: -8 }}>こぼした</Big>
+      <Big size={110} color="#fff">冷蔵庫の下に</Big>
+      <Big size={230} color={RED} style={{ marginTop: 14, marginLeft: -8 }}>転がした</Big>
       <Big size={150} color={YELLOW} style={{ marginTop: 14 }}>のだ…</Big>
     </div>
-    <Tomato x={520} y={610} r={70} />
+    <Tomato x={560} y={640} r={44} />
   </AbsoluteFill>
 );
 
@@ -57,14 +58,14 @@ export const ThumbB: React.FC = () => (
 export const ThumbC: React.FC = () => (
   <AbsoluteFill style={{ overflow: "hidden", background: INK }}>
     <Bg file="kitchen_day.png" brightness={0.45} />
-    <Tachie character="zundamon" scale={1.6} flip pick={{ ...SHOCKED, 右腕: "口元", 左腕: "口元" }} toggles={{ 汗多め: true }} style={{ left: -60, top: -300 }} />
-    <Tachie character="metan" scale={0.75} pick={{ 眉: "ごきげん", 目: "目セット", 黒目: "カメラ目線", 右腕: "手をかざす", 左腕: "普通", 顔色: "普通2", 口: "ほほえみ" }} style={{ left: 880, top: 120 }} />
-    <div style={{ position: "absolute", left: 0, right: 0, bottom: 0, height: 230, background: "rgba(0,0,0,0.82)" }} />
-    <div style={{ position: "absolute", left: 40, bottom: 34, display: "flex", alignItems: "baseline", gap: 8 }}>
-      <Big size={110} color="#fff">冷蔵庫の下に</Big>
-      <Big size={160} color={RED}>トマト</Big>
+    <Tachie character="zundamon" scale={1.6} flip pick={{ ...SHOCKED, 右腕: "口元", 左腕: "口元" }} toggles={{ 汗多め: true }} style={{ left: -200, top: -300 }} />
+    <Tachie character="metan" scale={0.62} pick={{ 眉: "ごきげん", 目: "目セット", 黒目: "カメラ目線", 右腕: "手をかざす", 左腕: "普通", 顔色: "普通2", 口: "ほほえみ" }} style={{ left: 820, top: 110 }} />
+    <div style={{ position: "absolute", left: 0, right: 0, bottom: 0, height: 290, background: "rgba(0,0,0,0.82)" }} />
+    <div style={{ position: "absolute", left: 40, bottom: 30 }}>
+      <Big size={88} color="#fff">冷蔵庫の下から</Big>
+      <Big size={160} color={RED} style={{ marginTop: 6 }}>ミニトマト</Big>
     </div>
-    <Tomato x={170} y={400} r={66} />
+    <Tomato x={1020} y={610} r={48} />
   </AbsoluteFill>
 );
 
@@ -80,9 +81,9 @@ export const ThumbD: React.FC = () => (
     <div style={{ position: "absolute", left: 660, top: 0, width: 620, height: 720, overflow: "hidden" }}>
       <Img src={staticFile("bg/kitchen_day.png")} style={{ position: "absolute", left: -500, width: 1280, height: 720, objectFit: "cover", filter: "brightness(0.3) saturate(1.2) blur(2px)" }} />
       <Tachie character="zundamon" scale={0.95} flip pick={{ ...SHOCKED, 右腕: "手を挙げる", 左腕: "手を挙げる" }} toggles={{ 汗多め: true }} style={{ left: -120, top: 130 }} />
-      <Big size={92} color={YELLOW} style={{ position: "absolute", left: 40, top: 30 }}>冷蔵庫の下</Big>
+      <Big size={92} color={YELLOW} style={{ position: "absolute", left: 40, top: 30 }}>冷蔵庫の下を</Big>
       <Big size={112} color={RED} style={{ position: "absolute", left: 40, top: 130 }}>のぞいたら</Big>
-      <Tomato x={110} y={620} r={62} />
+      <Tomato x={120} y={650} r={42} />
     </div>
     <div style={{ position: "absolute", left: 620, top: 0, width: 40, height: 720, background: YELLOW }} />
     <svg style={{ position: "absolute", left: 560, top: 300 }} width={160} height={120} viewBox="0 0 160 120">
